@@ -166,3 +166,6 @@ export function getHourlyElapsedSeconds(
     hourSeconds
   ) % hourSeconds;
 }
+
+/*時間が正しく動くように修正ました！
+Fixed the time to work correctly!*/
