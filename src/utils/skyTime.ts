@@ -1,11 +1,10 @@
 const SKY_TIME_ZONE = "America/Los_Angeles";
 
 /*
- * 指定された瞬間の
- * America/Los_Angeles のUTCオフセットを取得
- *
- * PDT = -420
- * PST = -480
+ 指定された瞬間の
+ America/Los_Angeles のUTCオフセットを取得
+ PDT = -420
+ PST = -480
  */
 export function getSkyUtcOffsetMinutes(
   date: Date
@@ -45,9 +44,7 @@ export function getSkyUtcOffsetMinutes(
 
 
 /*
- * 現在属しているSkyの日付を取得
- *
- * 端末タイムゾーンには依存しない。
+ 現在属しているSkyの日付を取得端末タイムゾーンには依存しない。依存すんな自立しろ。
  */
 export function getSkyDateParts(
   date: Date
@@ -87,15 +84,14 @@ export function getSkyDateParts(
 
 
 /*
- * 現在のSky Dayの開始時刻
- *
- * America/Los_Angeles 00:00
- *
- * 夏:
- * PDT 00:00 = UTC 07:00
- *
- * 冬:
- * PST 00:00 = UTC 08:00
+ 現在のSky Dayの開始時刻
+ 
+ America/Los_Angeles 00:00
+ 
+ 夏:
+ PDT 00:00 = UTC 07:00
+  冬:
+ PST 00:00 = UTC 08:00
  */
 export function getSkyDayStart(
   now: Date
@@ -131,13 +127,10 @@ export function getSkyDayStart(
 
 
 /*
- * 世界共通の1時間周期での現在位置。
- *
- * 端末のgetMinutes/getSecondsを使わない。
- *
- * 0   = XX:00:00
- * 0.5 = XX:30:00
- * 1   = 次のXX:00:00
+ 世界共通の1時間周期での現在位置。端末のgetMinutes/getSecondsを使わない。
+ 0   = XX:00:00
+ 0.5 = XX:30:00
+ 1   = 次のXX:00:00
  */
 export function getHourlyProgress(
   now: Date
@@ -167,5 +160,4 @@ export function getHourlyElapsedSeconds(
   ) % hourSeconds;
 }
 
-/*時間が正しく動くように修正ました！
-Fixed the time to work correctly!*/
+/*人のソースを見るな、痴漢だぞ*/
