@@ -117,7 +117,7 @@ export default function WaveTimeline() {
 
 // 朝→昼の切り替わりで霧をスキップ
 // 切り替わり前後の1秒間でフェードさせる
-const FADE_SECONDS = 1;
+const FADE_SECONDS = 2;
 
 const secondsInPhase =
   arlesCycleSeconds % ARLES_PHASE_SECONDS;
