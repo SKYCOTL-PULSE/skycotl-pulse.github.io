@@ -183,7 +183,7 @@ if (arlesPhaseIndex === 1) {
   return (
     <div className="wave-timeline">
 
-      /* 凡例 */
+      {/* 凡例 */}
       <div className="wave-legends">
         <div className="wave-legend">
           <span
@@ -208,7 +208,7 @@ if (arlesPhaseIndex === 1) {
         viewBox="0 0 1000 150"
         preserveAspectRatio="xMidYMid meet"
       >
-        /* 縦線 */
+        {/* 縦線 */}
         {phases.map((phase) => {
           const x = 40 + (phase.start / 60) * 920;
 
@@ -225,7 +225,7 @@ if (arlesPhaseIndex === 1) {
           );
         })}
 
-        /* フェーズ名 */
+        {/* フェーズ名 */}
         {phases.map((phase) => {
           const x = 40 + (phase.start / 60) * 920;
 
@@ -264,7 +264,7 @@ if (arlesPhaseIndex === 1) {
           );
         })}
 
-        /* 共通の曲線 */
+        {/* 共通の曲線 */}
         <path
           ref={pathRef}
           d={PATH}
@@ -274,7 +274,7 @@ if (arlesPhaseIndex === 1) {
           strokeLinecap="round"
         />
 
-        /* 花鳥郷：黄色 */
+        {/* 花鳥郷：黄色 */}
         <circle
           cx={aviaryDot.x}
           cy={aviaryDot.y}
@@ -283,7 +283,7 @@ if (arlesPhaseIndex === 1) {
           filter="drop-shadow(0 0 10px #FFD66B)"
         />
 
-        /* アルルの巣：青色 */
+        {/* アルルの巣：青色 */}
         <circle
           cx={arlesDot.x}
           cy={arlesDot.y}
@@ -294,7 +294,7 @@ if (arlesPhaseIndex === 1) {
         />
       </svg>
 
-/* 次回環境変化 */
+{/* 次回環境変化 */}
 <div className="wave-next">
   <div>
     <span style={{ color: "#FFD66B" }}>●</span>
