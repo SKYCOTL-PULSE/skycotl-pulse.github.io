@@ -1,3 +1,5 @@
+/*Wave Timeline*/
+
 .wave-timeline {
   display: flex;
   flex-direction: column;
@@ -5,15 +7,53 @@
   justify-content: center;
 
   width: 100%;
-  padding: 12px 0 8px;
+  margin-top: 4px;
+  padding: 8px 0 12px;
 }
 
-.wave-header {
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 12px;
+/*Legends*/
+
+.wave-legends {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  max-width: none;
+
+  gap: 8px;
+  margin-bottom: 16px;
 }
+
+.wave-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wave-legend-dot {
+  display: inline-block;
+
+  width: 12px;
+  height: 12px;
+
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.wave-legend:first-child .wave-legend-dot {
+  box-shadow: 0 0 10px rgba(255, 214, 107, 0.65);
+}
+
+.wave-legend:last-child .wave-legend-dot {
+  box-shadow: 0 0 10px rgba(101, 199, 255, 0.65);
+}
+
+/*Graph*/
 
 .wave-timeline svg {
   width: 100%;
@@ -21,28 +61,56 @@
   overflow: visible;
 }
 
-.wave-next {
-  margin-top: 16px;
-
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255,255,255,.72);
-
-  letter-spacing: .03em;
-}
-
 .wave-timeline text {
-  transition: .3s;
+  transition: 0.3s;
   user-select: none;
 }
 
 .wave-timeline line {
-  transition: .3s;
+  transition: 0.3s;
 }
 
+/*Next Events*/
+
+.wave-next {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: fit-content;
+  max-width: 100%;
+
+  gap: 8px;
+  margin: 20px auto 0;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.03em;
+}
+
+/* Mobile*/
+
 @media (max-width: 768px) {
+
   .wave-timeline {
-    padding: 2px 0 4px;
+    margin-top: 4px;
+    padding: 4px 0 8px;
+  }
+
+  .wave-legends {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .wave-legend {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .wave-legend-dot {
+    width: 9px;
+    height: 9px;
   }
 
   .wave-timeline svg {
@@ -51,9 +119,11 @@
   }
 
   .wave-next {
-    margin-top: 4px;
-    font-size: 17px;
-    font-weight: 700;
+    margin: 12px auto 0;
+    gap: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0;
   }
 
@@ -61,7 +131,9 @@
     font-size: 24px;
   }
 }
+/*Arles Nest Animation*/
 
-.wave-timeline {
-  margin-top: 20px;
+.arles-dot {
+  transition:
+    opacity 1s ease-in-out;
 }

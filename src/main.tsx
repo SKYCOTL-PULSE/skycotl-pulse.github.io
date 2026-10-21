@@ -18,6 +18,6 @@ createRoot(document.getElementById("root")!).render(
 );
 
   /*
-  人のソースコードを見るなよ、照れるから
-  Stop looking at the source code, I'll get embarrassed 
+  人のソースコードを見るなよ、照れるだろ
+  Stop looking at the source code, I'll get embarrassed///
   */
