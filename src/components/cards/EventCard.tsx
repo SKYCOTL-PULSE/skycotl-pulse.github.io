@@ -73,9 +73,23 @@ export default function EventCard({
               </p>
 
               <div className="event-time">
-                <span className="mobile-only next-label">
-                   NEXT ➡
-                </span>
+<span className="mobile-only next-label">
+  NEXT
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    style={{ verticalAlign: "middle", marginLeft: "4px" }}
+  >
+    <path d="M5 12h14m-6-6 6 6-6 6" />
+  </svg>
+</span>
 
                 <span>
                   {formatTime(nextTime)}

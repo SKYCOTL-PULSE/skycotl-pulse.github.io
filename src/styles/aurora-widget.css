@@ -1,11 +1,20 @@
+
 .aurora-widget .special-title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   white-space: nowrap;
   font-size: 2rem;
 }
 
+.aurora-title-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* スマホ版 */
 @media (max-width: 768px) {
   .mobile-aurora .aurora-widget {
     height: 100%;
@@ -24,6 +33,11 @@
     margin: 0;
   }
 
+  .aurora-title-icon {
+    width: 24px;
+    height: 24px;
+  }
+
   .mobile-aurora .special-badge {
     display: none;
   }
@@ -31,11 +45,9 @@
   .mobile-aurora .special-meta {
     margin-top: auto;
     margin-bottom: 4px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     white-space: nowrap;
   }
 
@@ -56,12 +68,9 @@
   }
 }
 
+/* PC版 */
 @media (min-width: 769px) {
-  .aurora-widget {
-    height: 100%;
-    box-sizing: border-box;
-  }
-
+  .aurora-widget,
   .aurora-widget .special-event-info {
     height: 100%;
     box-sizing: border-box;

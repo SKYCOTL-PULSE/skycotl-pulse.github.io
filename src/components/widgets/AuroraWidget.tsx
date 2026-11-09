@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/aurora-widget.css";
+import AuroraIcon from "../../assets/icon/AURORA.svg";
 
 const isSummerTime = true;
 
@@ -73,13 +74,12 @@ export default function AuroraWidget() {
       <div className="special-event-info">
      
       <h2 className="special-title">
-  <span className="desktop-title">
-        ✨ AURORAコンサート
-  </span>
-
-  <span className="mobile-title">
-  AURORA
-  </span>
+  <img
+    src={AuroraIcon}
+    alt=""
+    className="aurora-title-icon"
+  />
+  <span>AURORA</span>
 </h2>
 
         <div className="special-badge">
