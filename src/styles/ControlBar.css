@@ -654,3 +654,8 @@
     filter: saturate(1.18);
   }
 }
+
+.control-bar {
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+}
