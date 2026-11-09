@@ -656,6 +656,5 @@
 }
 
 .control-bar {
-  backdrop-filter: blur(40px) !important;
-  -webkit-backdrop-filter: blur(40px) !important;
+  background: rgba(24, 32, 48, 0.42);
 }
