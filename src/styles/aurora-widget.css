@@ -76,3 +76,12 @@
     box-sizing: border-box;
   }
 }
+
+.aurora-particle-canvas {
+  display: block;
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+

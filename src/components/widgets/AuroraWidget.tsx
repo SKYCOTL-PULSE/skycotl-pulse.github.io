@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styles/aurora-widget.css";
 import AuroraIcon from "../../assets/icon/AURORA.svg";
+import AuroraParticleRing from "./AuroraParticleRing";
 
 const isSummerTime = true;
 
@@ -9,7 +10,7 @@ const normalSchedule = [17, 19, 21, 23, 1, 3, 6, 7, 9, 11, 13, 15];
 
 const concertDurationMs = 60 * 60 * 1000;
 
-const particles = Array.from({ length: 28 }, (_, index) => index);
+
 
 function getAuroraTimes(now: Date) {
   const schedule = isSummerTime ? summerSchedule : normalSchedule;
@@ -102,16 +103,8 @@ export default function AuroraWidget() {
       </div>
 
       <div className="special-event-visual">
-        <div className={isLive ? "aurora-orbit aurora-orbit-live" : "aurora-orbit"} aria-hidden="true">
-          {particles.map((particle) => (
-            <span
-              key={particle}
-              className="aurora-particle"
-              style={{ "--i": particle } as React.CSSProperties}
-            />
-          ))}
-        </div>
-      </div>
+  <AuroraParticleRing isLive={isLive} />
+</div>
     </div>
   );
 }

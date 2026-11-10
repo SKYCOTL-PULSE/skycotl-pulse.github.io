@@ -708,11 +708,11 @@ body::after {
 }
 
 /* Cloudは白文字が沈まないよう少し影を付ける */
+/* 意味わからんボックスが出てくるからAURORAだけ除外 */
 
 [data-theme="cloud"] .now-card,
 [data-theme="cloud"] .event-card,
 [data-theme="cloud"] .fireworks-widget,
-[data-theme="cloud"] .aurora-widget,
 [data-theme="cloud"] .environment-widget {
   box-shadow:
     0 18px 45px rgba(75, 85, 100, 0.18),
@@ -728,11 +728,11 @@ body::after {
 }
 
 /* Starryは暗色を使わず、パステルのガラス感 */
+/* 意味わからんボックスが出てくるからAURORAだけ除外 */
 
 [data-theme="starry"] .now-card,
 [data-theme="starry"] .event-card,
 [data-theme="starry"] .fireworks-widget,
-[data-theme="starry"] .aurora-widget,
 [data-theme="starry"] .environment-widget {
   backdrop-filter: blur(24px);
   box-shadow:
