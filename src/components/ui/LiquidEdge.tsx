@@ -38,21 +38,21 @@ export default function LiquidEdge() {
                   type="button"
                   onClick={() => setPage("spec")}
                 >
-                  仕様書
+                  仕様書/DOCUMENTATION
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setPage("social")}
                 >
-                  SNSアカウント
+                  SNSアカウント/SOCIAL MEDIA
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setPage("review")}
                 >
-                  レビュー
+                  レビュー/REVIEW
                 </button>
               </nav>
             </>
