@@ -1,0 +1,525 @@
+
+/* =========================
+   LIQUID EDGE
+========================= */
+
+.liquid-edge {
+  position: fixed;
+  right: 0;
+  top: 15%;
+  width: 64px;
+  height: 160px;
+  z-index: 10001;
+  color: #05060b;
+  pointer-events: none;
+
+  transition:
+    height 650ms cubic-bezier(.22, 1.35, .35, 1),
+    width 650ms cubic-bezier(.22, 1.35, .35, 1);
+}
+
+.liquid-edge.is-open {
+  width: 76px;
+  height: 260px;
+}
+
+.liquid-edge-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   ORB
+========================= */
+
+.liquid-edge-orb {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  display: grid;
+  place-items: center;
+}
+
+.liquid-edge-orb-inner {
+  width: 14px;
+  height: 30px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #797cff,
+    #d16cff,
+    #65dfff,
+    #797cff
+  );
+
+  background-size: 300% 300%;
+  animation: liquid-orb-color 7s ease-in-out infinite;
+
+  transition:
+    opacity 220ms ease,
+    transform 350ms ease;
+}
+
+@keyframes liquid-orb-color {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.liquid-edge.is-open .liquid-edge-orb-inner {
+  opacity: 0;
+  transform: scale(.4);
+}
+
+/* =========================
+   CLOSE ICON
+========================= */
+
+.liquid-edge-close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  opacity: 0;
+  transform: scale(.5) rotate(-45deg);
+
+  transition:
+    opacity 280ms ease,
+    transform 480ms cubic-bezier(.2, 1.4, .3, 1);
+}
+
+.liquid-edge-close span {
+  position: absolute;
+  top: 9px;
+  left: 1px;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.liquid-edge-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.liquid-edge-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.liquid-edge.is-open .liquid-edge-close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* =========================
+   SUBPAGE BUTTONS
+========================= */
+
+.liquid-edge:has(.liquid-edge-back) .liquid-edge-orb {
+  top: 38%;
+  right: 0;
+}
+
+.liquid-edge-back {
+  position: absolute;
+  top: 64%;
+  right: 0;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.liquid-back-icon {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+/* ×と〈のプリッとした登場 */
+
+.liquid-edge.is-open .liquid-edge-close,
+.liquid-edge.is-open .liquid-edge-back {
+  animation: liquid-button-pop 480ms
+    cubic-bezier(.2, 1.5, .35, 1) both;
+}
+
+@keyframes liquid-button-pop {
+  0% {
+    opacity: 0;
+    scale: .55;
+  }
+
+  65% {
+    opacity: 1;
+    scale: 1.12;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* =========================
+   FULLSCREEN MENU
+========================= */
+
+.liquid-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  background:
+    radial-gradient(
+      ellipse at 75% 20%,
+      #30376d 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 20% 85%,
+      #241b4e 0%,
+      transparent 55%
+    ),
+    #0b1025;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 480ms ease-in-out,
+    visibility 480ms;
+}
+
+.liquid-menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.liquid-menu-content {
+  min-height: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 24px;
+  color: #fff;
+
+  animation: liquid-content-fade 350ms ease-in-out both;
+}
+
+@keyframes liquid-content-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   MAIN MENU
+========================= */
+
+.liquid-menu-heading {
+  font-size: 13px;
+  letter-spacing: .4em;
+  color: #929bd3;
+  margin-bottom: 55px;
+}
+
+.liquid-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.liquid-menu-list > button {
+  display: block;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  background: transparent;
+
+  font: inherit;
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 300;
+  letter-spacing: .08em;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.liquid-menu-overlay.is-open .liquid-menu-list > button {
+  animation: liquid-menu-enter 650ms ease-out both;
+}
+
+.liquid-menu-list > button:nth-child(1) {
+  animation-delay: 160ms;
+}
+
+.liquid-menu-list > button:nth-child(2) {
+  animation-delay: 260ms;
+}
+
+.liquid-menu-list > button:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.liquid-menu-list > button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+@keyframes liquid-menu-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SUBPAGES
+========================= */
+
+.liquid-menu-content.is-subpage {
+  display: block;
+  height: 100dvh;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 70px 24px 100px;
+}
+
+.liquid-spec,
+.liquid-social {
+  width: min(100%, 680px);
+  margin: 0 auto;
+}
+
+.liquid-spec-eyebrow {
+  color: #a3a8dc;
+  font-size: 11px;
+  letter-spacing: .22em;
+}
+
+.liquid-spec h1,
+.liquid-social h1 {
+  margin: 24px 0;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+}
+
+.liquid-spec-intro {
+  margin-bottom: 56px;
+  color: #c9cce4;
+  line-height: 2;
+}
+
+.liquid-spec section {
+  padding: 26px 0 32px;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.liquid-spec h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.liquid-spec section p {
+  margin: 0;
+  color: #b9bed8;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.liquid-spec-footer {
+  margin-top: 50px;
+  font-size: 11px;
+  color: #858ba9;
+  letter-spacing: .08em;
+}
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.liquid-social-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.liquid-social-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+
+  color: #fff;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 400;
+  text-decoration: none;
+
+  transition:
+    opacity 250ms ease,
+    padding-left 350ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.liquid-social-links a:hover {
+  opacity: .65;
+  padding-left: 8px;
+}
+
+.liquid-social-links a span {
+  font-size: 18px;
+  color: #a3a8dc;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .liquid-edge {
+    top: 20%;
+    width: 42px;
+    height: 140px;
+  }
+
+  .liquid-edge.is-open {
+    width: 56px;
+    height: 220px;
+  }
+
+  .liquid-menu-content.is-subpage {
+    padding: 65px 54px 100px 24px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-edge,
+  .liquid-edge-orb-inner,
+  .liquid-edge-close,
+  .liquid-menu-overlay,
+  .liquid-menu-content,
+  .liquid-edge-back,
+  .liquid-menu-list > button {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .liquid-menu-list > button {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* Review page */
+
+.liquid-review {
+  width: min(100%, 680px);
+  margin: 0 auto;
+}
+
+.liquid-review h1 {
+  margin: 24px 0 40px;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+}
+
+.liquid-review-text,
+.liquid-review-text-en {
+  font-size: 14px;
+  line-height: 2;
+  color: #c9cce4;
+}
+
+.liquid-review-text-en {
+  margin-top: 24px;
+  color: #9da5c6;
+}
+
+.liquid-review-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 48px;
+  padding: 22px 0;
+
+  border-top: 1px solid rgba(255,255,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+
+  transition: opacity 250ms ease;
+}
+
+.liquid-review-link:hover {
+  opacity: .65;
+}
+
+.liquid-review-link span {
+  color: #a3a8dc;
+  font-size: 18px;
+}
+
+.liquid-link-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
+}

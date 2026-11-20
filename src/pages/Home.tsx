@@ -11,7 +11,8 @@ import AuroraWidget from "../components/widgets/AuroraWidget";
 import EnvironmentWidget from "../components/widgets/EnvironmentWidget";
 import FloatingNowBar from "../components/ui/FloatingNowBar";
 import Logo from "../components/ui/Logo";
-
+import LiquidEdge from "../components/ui/LiquidEdge";
+import LandscapeClock from "../components/widgets/LandscapeClock";
 import ControlBar from "../layouts/ControlBar";
 
 import { getTimeTheme } from "../utils/theme";
@@ -31,9 +32,7 @@ export default function Home() {
 
   const { theme } = useTheme();
 
-  /*
-   * 時計更新
-   */
+  /*時計更新*/
   useEffect(() => {
     const timer = setInterval(() => {
       setNow(new Date());
@@ -42,10 +41,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  /*
-   * NowCardが画面上へ消えたら
-   * FloatingNowBarを表示
-   */
+  /*NowCardが画面上へ消えたらFloatingNowBarを表示*/
   useEffect(() => {
     const element = nowCardRef.current;
 
@@ -80,7 +76,9 @@ export default function Home() {
       : "";
 
   return (
-    <>
+     <>
+      <LandscapeClock now={now} />
+      <LiquidEdge />
       <ControlBar />
 
       {/* NowCardが上に消えた時だけ表示 */}

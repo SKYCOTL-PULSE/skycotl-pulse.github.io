@@ -479,7 +479,7 @@ body,
 }
 
 body {
-  background: var(--bg);
+  background: var(--page-bg, #0d121a);
   color: var(--text);
   transition:
     background-color 0.35s ease,

@@ -1,0 +1,216 @@
+@font-face {
+  font-family: "BestTenDOT";
+  src: url("../../assets/fonts/BestTen-DOT.otf") format("opentype");
+  font-display: swap;
+}
+/* Landscape Clock */
+
+.landscape-clock {
+  display: none;
+  font-family: "BestTenDOT", monospace;
+}
+
+/* スマホ横向き専用 */
+
+@media (orientation: landscape)
+  and (max-height: 600px)
+  and (pointer: coarse) {
+
+  .landscape-clock {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+
+    width: 100%;
+    height: 100dvh;
+
+    background: #000;
+    color: #fff;
+
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .landscape-clock-inner {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+
+    box-sizing: border-box;
+    padding: 5vh 6%;
+  }
+
+  /* 左側のリング */
+
+  .landscape-clock-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+  }
+
+  .landscape-orbit {
+    position: relative;
+    width: min(82vh, 38vw);
+    aspect-ratio: 1;
+    flex-shrink: 0;
+  }
+
+  .landscape-orbit-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .landscape-orbit-svg > circle:first-child {
+    stroke: rgba(255, 255, 255, .65);
+    stroke-width: 1;
+    filter: drop-shadow(0 0 3px rgba(255,255,255,.65));
+  }
+
+  .landscape-orbit-dot {
+    filter:
+      drop-shadow(0 0 5px white)
+      drop-shadow(0 0 9px rgba(255,255,255,.5));
+  }
+
+  .landscape-orbit-center {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .landscape-now-icon {
+    width: 38%;
+    height: 38%;
+    object-fit: contain;
+  }
+
+  .landscape-none {
+    width: 56%;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* 右側の情報 */
+
+  .landscape-clock-right {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: start;
+
+    width: 100%;
+    height: 75%;
+    min-width: 0;
+    position: relative;
+    box-sizing: border-box;
+      transform: translateX(40px);
+  }
+
+  /* NEXT */
+
+  .landscape-next {
+    grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    align-self: start;
+    min-width: 0;
+  }
+
+  .landscape-label {
+    font-size: clamp(12px, 2vw, 20px);
+    font-weight: 400;
+    letter-spacing: .04em;
+    color: #fff;
+  }
+
+  .landscape-next h2 {
+    margin: 5px 0 0;
+
+    font-size: clamp(20px, 3.6vw, 36px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: .02em;
+
+    color: #fff;
+  }
+
+  /* 現在時刻 */
+
+  .landscape-current-time {
+    grid-row: 3;
+    align-self: end;
+    justify-self: start;
+
+    position: static;
+    margin: 0;
+
+    font-size: clamp(30px, 5vw, 58px);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: .03em;
+    line-height: 1;
+
+    white-space: nowrap;
+    color: #fff;
+  }
+
+/* 横画面の環境情報 */
+
+.landscape-status {
+  grid-row: 2;
+  align-self: center;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-size: clamp(12px, 1.5vw, 19px);
+  font-weight: 400;
+  color: #fff;
+}
+
+.landscape-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 260px;
+  gap: 12px; 
+  white-space: nowrap;
+}
+
+.landscape-status-aurora {
+  margin-top: 20px;
+}
+
+
+/*フォント設定*/
+@font-face {
+  font-family: "BestTen-DOT";
+  src: url("../../assets/fonts/BestTenDOT.otf") format("opentype");
+  font-display: swap;
+}
+
+.landscape-clock {
+  font-family: "BestTenDOT", monospace;
+}
+  }

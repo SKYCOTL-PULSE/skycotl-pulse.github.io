@@ -3,8 +3,9 @@ import { getSkyDayStart } from "./skyTime";
 
 
 /* FIREWORKS
- 花鳥郷花火大会
- *
+ 花鳥郷花火大会メモ
+
+ 
  Sky時間（America/Los_Angeles）
  毎月1日
  
@@ -16,14 +17,14 @@ import { getSkyDayStart } from "./skyTime";
  20:00
  
  日本時間
- *
- * PDT:
+ 
+ PDT:
  1日 16:00 / 20:00
  2日 00:00 / 04:00 / 08:00 / 12:00
- *
+ 
  PST:
  1日 17:00 / 21:00
- * 2日 01:00 / 05:00 / 09:00 / 13:00
+ 2日 01:00 / 05:00 / 09:00 / 13:00
  */
 
 const FIREWORKS_HOURS = [
